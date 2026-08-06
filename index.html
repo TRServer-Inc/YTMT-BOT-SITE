@@ -3,78 +3,93 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YTMT-BOT - Ana Sayfa</title>
+  <title>YTMT-BOT - Discord Botunuz</title>
   <style>
+    :root {
+      --bg: #0b0f19;
+      --card-bg: rgba(23, 31, 51, 0.7);
+      --accent: #6366f1;
+      --accent-hover: #4f46e5;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, -apple-system, sans-serif; }
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #0f172a;
-      color: #fff;
-      margin: 0;
-      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(14, 165, 233, 0.15) 0px, transparent 50%);
     }
-    .container {
+    .hero-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 50px 40px;
+      border-radius: 24px;
       text-align: center;
-      background: #1e293b;
-      padding: 40px;
-      border-radius: 16px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-      max-width: 500px;
+      max-width: 480px;
       width: 90%;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     }
-    h1 {
-      margin-bottom: 10px;
-      color: #38bdf8;
-    }
-    p {
-      color: #94a3b8;
-      margin-bottom: 30px;
-    }
-    .btn-container {
+    .bot-avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #6366f1, #0ea5e9);
+      margin: 0 auto 20px;
       display: flex;
-      flex-direction: column;
-      gap: 15px;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
     }
+    h1 { font-size: 2rem; font-weight: 800; margin-bottom: 10px; letter-spacing: -0.5px; }
+    p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 30px; line-height: 1.5; }
+    .btn-group { display: flex; flex-direction: column; gap: 14px; }
     .btn {
-      padding: 14px 24px;
-      border-radius: 8px;
-      font-weight: bold;
+      padding: 14px 20px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.95rem;
       text-decoration: none;
       color: #fff;
       transition: all 0.2s ease;
-      display: inline-block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
     }
-    .btn-invite {
-      background: #5865F2;
+    .btn-primary {
+      background: var(--accent);
+      box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
     }
-    .btn-invite:hover {
-      background: #4752C4;
+    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
-    .btn-dashboard {
-      background: #0284c7;
-    }
-    .btn-dashboard:hover {
-      background: #0369a1;
-    }
+    .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); transform: translateY(-2px); }
   </style>
 </head>
 <body>
 
-  <div class="container">
+  <div class="hero-card">
+    <div class="bot-avatar">⚡</div>
     <h1>YTMT-BOT</h1>
-    <p>discord sunucunu kolayca yönet ve özelleştir!</p>
+    <p>discord sunucunuzu güçlendirin, yönetin ve özelleştirin. modern ve hızlı yönetim paneli.</p>
 
-    <div class="btn-container">
-      <!-- CLIENT_ID yazan yere botunun id'sini gir -->
-      <a href="https://discord.com/oauth2/authorize?client_id=1234567890123456789&permissions=8&scope=bot%20applications.commands" target="_blank" class="btn btn-invite">
+    <div class="btn-group">
+      <!-- CLIENT_ID YAZAN YERE BOTUNUN ID'SINI YAPIŞTIR -->
+      <a href="https://discord.com/oauth2/authorize?client_id=1234567890123456789&permissions=8&scope=bot%20applications.commands" target="_blank" class="btn btn-primary">
         🤖 Botu Sunucuna Ekle
       </a>
 
-      <a href="dashboard.html" class="btn btn-dashboard">
+      <a href="dashboard.html" class="btn btn-secondary">
         🎛️ Dashboard / Giriş Yap
       </a>
     </div>
