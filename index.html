@@ -1,80 +1,84 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YTMTBot - Resmi Web Sitesi</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YTMT-BOT - Ana Sayfa</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0f172a;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .container {
+      text-align: center;
+      background: #1e293b;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      max-width: 500px;
+      width: 90%;
+    }
+    h1 {
+      margin-bottom: 10px;
+      color: #38bdf8;
+    }
+    p {
+      color: #94a3b8;
+      margin-bottom: 30px;
+    }
+    .btn-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .btn {
+      padding: 14px 24px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #fff;
+      transition: all 0.2s ease;
+      display: inline-block;
+    }
+    .btn-invite {
+      background: #5865F2;
+    }
+    .btn-invite:hover {
+      background: #4752C4;
+    }
+    .btn-dashboard {
+      background: #0284c7;
+    }
+    .btn-dashboard:hover {
+      background: #0369a1;
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Header / Navbar -->
-    <header>
-        <div class="logo">
-            <img src="bot-avatar.jpeg" alt="YTMTBot Logo" id="bot-logo">
-            <span>YTMTBot</span>
-        </div>
-        <nav>
-            <a href="#home">Ana Sayfa</a>
-            <a href="#features">Özellikler</a>
-            <a href="#commands">Komutlar</a>
-        </nav>
-        <a href="https://discord.com/oauth2/authorize?client_id=1101862904380272747&permissions=8&integration_type=0&scope=bot" target="_blank" class="btn-invite">Sunucuna Ekle</a>
-    </header>
+  <div class="container">
+    <h1>YTMT-BOT</h1>
+    <p>discord sunucunu kolayca yönet ve özelleştir!</p>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Sunucunu <span class="highlight">YTMTBot</span> ile Yönet!</h1>
-            <p>Gelişmiş kayıt sistemi, moderasyon araçları ve premium özellikler ile Discord sunucun artık çok daha güçlü.</p>
-            <div class="hero-buttons">
-                <a href="https://discord.com/oauth2/authorize?client_id=1101862904380272747&permissions=8&integration_type=0&scope=bot" target="_blank" class="btn-primary"><i class="fa-brands fa-discord"></i> Botu Ekle</a>
-                <a href="#commands" class="btn-secondary"><i class="fa-solid fa-code"></i> Komutları İncele</a>
-            </div>
-        </div>
-        <div class="hero-image">
-            <img src="bot-banner.gif" alt="YTMTBot Banner" class="banner-img">
-        </div>
-    </section>
+    <div class="btn-container">
+      <!-- CLIENT_ID yazan yere botunun id'sini gir -->
+      <a href="https://discord.com/oauth2/authorize?client_id=1234567890123456789&permissions=8&scope=bot%20applications.commands" target="_blank" class="btn btn-invite">
+        🤖 Botu Sunucuna Ekle
+      </a>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
-        <h2>🔥 Neden YTMTBot?</h2>
-        <div class="feature-grid">
-            <div class="feature-card">
-                <i class="fa-solid fa-user-plus icon"></i>
-                <h3>Butonlu Kayıt Sistemi</h3>
-                <p>Gelen üyeleri modal (pencere) formları ve butonlarla hızlıca kayıt et, kayıtsız rolünü yönet.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fa-solid fa-shield-halved icon"></i>
-                <h3>Gelişmiş Moderasyon</h3>
-                <p>Fake Ban, Fullban ve gelişmiş rol yetkilendirmeleri ile sunucunu güvende tut.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fa-solid fa-crown icon"></i>
-                <h3>Premium Ayrıcalıklar</h3>
-                <p>Özel rol yönetimleri ve sunucuya özel yapılandırılabilir sistemler.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Commands Section -->
-    <section id="commands" class="commands">
-        <h2>📜 Öne Çıkan Komutlar</h2>
-        <div class="command-list">
-            <div class="cmd-item"><code>y!kayıt-kurulum</code> - Kayıt kanalı ve rollerini otomatik kurar.</div>
-            <div class="cmd-item"><code>y!ban-kurulum</code> - Banlanmış rolünü oluştutup kanalları kilitler.</div>
-            <div class="cmd-item"><code>y!kayıt @üye Ad Yaş</code> - Kullanıcıyı manuel kayıt eder.</div>
-            <div class="cmd-item"><code>y!yardım</code> - Tüm komut listesini embed olarak Discord'da gösterir.</div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 YTMTBot. Tüm hakları saklıdır. Designed for Discord.</p>
-    </footer>
+      <a href="dashboard.html" class="btn btn-dashboard">
+        🎛️ Dashboard / Giriş Yap
+      </a>
+    </div>
+  </div>
 
 </body>
 </html>
