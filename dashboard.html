@@ -5,96 +5,111 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>YTMT-BOT - Dashboard</title>
   <style>
+    :root {
+      --bg: #0b0f19;
+      --card-bg: rgba(23, 31, 51, 0.7);
+      --accent: #6366f1;
+      --danger: #ef4444;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, -apple-system, sans-serif; }
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #0f172a;
-      color: #fff;
-      padding: 30px;
-      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 40px 20px;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.12) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(14, 165, 233, 0.12) 0px, transparent 50%);
     }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
+    .container { max-width: 720px; margin: 0 auto; }
+    .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+    .back-btn { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: 0.2s; }
+    .back-btn:hover { color: var(--text); }
     .card {
-      background: #1e293b;
-      padding: 25px;
-      border-radius: 12px;
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 30px;
+      border-radius: 20px;
       margin-bottom: 20px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
+    .user-profile { display: flex; align-items: center; gap: 20px; }
+    .user-profile img {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+    }
+    .user-details h2 { font-size: 1.4rem; font-weight: 700; margin-bottom: 4px; }
+    .user-details p { color: var(--text-muted); font-size: 0.85rem; }
     .btn {
-      background: #5865F2;
-      color: white;
-      padding: 12px 24px;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.9rem;
       border: none;
-      border-radius: 8px;
       cursor: pointer;
       text-decoration: none;
-      display: inline-block;
-      font-weight: bold;
-      transition: 0.2s;
-    }
-    .btn:hover {
-      background: #4752C4;
-    }
-    .btn-danger {
-      background: #ef4444;
-    }
-    .btn-danger:hover {
-      background: #dc2626;
-    }
-    .user-info {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 20px;
+      gap: 8px;
+      transition: all 0.2s ease;
     }
-    .user-info img {
-      border-radius: 50%;
-      width: 64px;
-      height: 64px;
-      border: 2px solid #5865F2;
+    .btn-login { background: var(--accent); color: #fff; }
+    .btn-login:hover { background: #4f46e5; transform: translateY(-2px); }
+    .btn-logout { background: rgba(239, 68, 68, 0.15); color: var(--danger); border: 1px solid rgba(239, 68, 68, 0.3); }
+    .btn-logout:hover { background: var(--danger); color: #fff; }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      background: rgba(34, 197, 94, 0.15);
+      color: #4ade80;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-top: 15px;
     }
-    .hidden {
-      display: none;
-    }
-    a {
-      color: #38bdf8;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
+    .status-dot { width: 8px; height: 8px; background: #4ade80; border-radius: 50%; }
+    .hidden { display: none; }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <h1>YTMT-BOT Kontrol Paneli</h1>
-    <p><a href="index.html">← Ana Sayfaya Dön</a></p>
+    <div class="header">
+      <h2 style="font-weight: 800;">YTMT Dashboard</h2>
+      <a href="index.html" class="back-btn">← Ana Sayfa</a>
+    </div>
 
     <!-- Giriş Yapılmadığında Görünen Kısım -->
-    <div id="login-section" class="card">
-      <h2>Hoş Geldin!</h2>
-      <p>Bot ayarlarını yönetmek ve profilini görmek için Discord hesabınla giriş yapman gerekiyor.</p>
-      <br>
-      <a id="login-btn" class="btn" href="#">Discord ile Giriş Yap</a>
+    <div id="login-section" class="card" style="text-align: center;">
+      <h2 style="margin-bottom: 10px;">Hoş Geldiniz 👋</h2>
+      <p style="color: var(--text-muted); margin-bottom: 24px;">Bot ayarlarını yönetmek için Discord hesabınızla giriş yapın.</p>
+      <a id="login-btn" class="btn btn-login" href="#">Discord ile Giriş Yap</a>
     </div>
 
     <!-- Giriş Yapıldığında Görünen Kısım -->
     <div id="dashboard-section" class="card hidden">
-      <div class="user-info">
+      <div class="user-profile">
         <img id="user-avatar" src="" alt="Avatar">
-        <div>
-          <h2 id="user-name" style="margin: 0;">Yükleniyor...</h2>
-          <p id="user-id" style="color: #94a3b8; margin: 5px 0 0 0;"></p>
+        <div class="user-details">
+          <h2 id="user-name">Yükleniyor...</h2>
+          <p id="user-id"></p>
+          <div class="status-badge">
+            <span class="status-dot"></span> Oturum Açık
+          </div>
         </div>
       </div>
-      <br><hr style="border-color: #334155;"><br>
-      <h3>Sunucuların ve Bot Ayarları</h3>
-      <p>Sistem aktif, giriş yapıldı.</p>
-      <br>
-      <button id="logout-btn" class="btn btn-danger">Çıkış Yap</button>
+      <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 24px 0;">
+      <h3 style="font-size: 1.1rem; margin-bottom: 10px;">Sunucu ve Bot Yönetimi</h3>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">Sistem aktif. Çok yakında buradan botunuzun ayarlarını canlı olarak değiştirebileceksiniz.</p>
+      <button id="logout-btn" class="btn btn-logout">Çıkış Yap</button>
     </div>
   </div>
 
