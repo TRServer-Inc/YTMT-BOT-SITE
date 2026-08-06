@@ -1,5 +1,5 @@
 // BURAYA KENDİ CLIENT ID DEĞERİNİ YAZ
-const CLIENT_ID = '1234567890123456789'; 
+const CLIENT_ID = '1101862904380272747'; 
 const REDIRECT_URI = 'https://trserver-inc.github.io/YTMT-BOT-SITE/dashboard.html';
 
 const loginBtn = document.getElementById('login-btn');
